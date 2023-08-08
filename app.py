@@ -38,7 +38,7 @@ def get_hook():
             message["Subject"] = f"{commitMessage} Assignment Submitted "
 
             # Email content
-            body = f"commit from : {json['url']}"
+            body = f'commit from : {json["url"]}'
             message.attach(MIMEText(body, "plain"))
             # Establish a secure connection with Gmail's SMTP server
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
