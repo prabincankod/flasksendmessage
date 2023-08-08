@@ -9,5 +9,5 @@ def hello_world():
 @app.route('/get-hook',methods=['POST','GET'])
 def get_hook():
     if request.method == 'POST':
-        print(request.json)
+        print(request.json.head_commit.message)
     return 'Hello, World!'
