@@ -14,7 +14,7 @@ app_password = os.getenv('app_password')
 
 # Recipient email
 def genEmail(commitMessage,commitLink):
-    generatedEmail = f'''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    generatedEmail = '''<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html>
 
     <head>
@@ -232,7 +232,7 @@ def genEmail(commitMessage,commitLink):
                                                                                         align="left">
                                                                                         <h1 class="text-white text-center"
                                                                                             style="color: #ffffff; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 36px; line-height: 43.2px; margin: 0;"
-                                                                                            align="center">{commitMessage}
+                                                                                            align="center">f'{commitMessage}'
                                                                                         </h1>
                                                                                     </td>
                                                                                 </tr>
@@ -322,7 +322,7 @@ def genEmail(commitMessage,commitLink):
                                                                                     <td style="line-height: 24px; font-size: 16px; border-radius: 9999px; width: 320px; font-weight: 800 !important; margin: 0;"
                                                                                         align="center" bgcolor="#ffda6a"
                                                                                         width="320">
-                                                                                        <a href="{commitLink}"
+                                                                                        <a href="f'{commitLink}'"
                                                                                             style="color: #111111; font-size: 16px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 9999px; line-height: 20px; display: block; font-weight: 800 !important; white-space: nowrap; background-color: #ffda6a; padding: 16px 12px; border: 1px solid #ffda6a;">Commit
                                                                                             Details</a>
                                                                                     </td>
@@ -396,6 +396,7 @@ def genEmail(commitMessage,commitLink):
     </body>
 
     </html>'''
+
     return generatedEmail
 
 
