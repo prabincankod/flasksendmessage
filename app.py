@@ -35,7 +35,7 @@ def get_hook():
             message = MIMEMultipart()
             message["From"] = sender_email
             message["To"] = recipient_email
-            message["Subject"] = f"{commitMessage} Assignment Submitted "
+            message["Subject"] = f"Prabin Subedi's {commitMessage} "
 
             # Email content
             body = f'commit from : {json["head_commit"]["url"]}'
