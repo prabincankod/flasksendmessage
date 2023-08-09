@@ -2,9 +2,9 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 from flask import Flask, request
 app = Flask(__name__)
 
@@ -232,7 +232,7 @@ def genEmail(commitMessage,commitLink):
                                                                                         align="left">
                                                                                         <h1 class="text-white text-center"
                                                                                             style="color: #ffffff; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 36px; line-height: 43.2px; margin: 0;"
-                                                                                            align="center">f'{commitMessage}'
+                                                                                            align="center">{commitMessage}
                                                                                         </h1>
                                                                                     </td>
                                                                                 </tr>
@@ -322,7 +322,7 @@ def genEmail(commitMessage,commitLink):
                                                                                     <td style="line-height: 24px; font-size: 16px; border-radius: 9999px; width: 320px; font-weight: 800 !important; margin: 0;"
                                                                                         align="center" bgcolor="#ffda6a"
                                                                                         width="320">
-                                                                                        <a href="f'{commitLink}'"
+                                                                                        <a href="{commitLink}"
                                                                                             style="color: #111111; font-size: 16px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 9999px; line-height: 20px; display: block; font-weight: 800 !important; white-space: nowrap; background-color: #ffda6a; padding: 16px 12px; border: 1px solid #ffda6a;">Commit
                                                                                             Details</a>
                                                                                     </td>
@@ -396,9 +396,9 @@ def genEmail(commitMessage,commitLink):
     </body>
 
     </html>'''
-
-    return generatedEmail
-
+    newEmail = generatedEmail.replace("{commitLink}", commitLink)
+    newEmail = newEmail.replace("{commitMessage}", commitMessage)
+    return newEmail
 
 @app.route('/')
 def hello_world():
